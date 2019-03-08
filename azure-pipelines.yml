@@ -1,0 +1,25 @@
+# Node.js with gulp
+# Build a Node.js project using the gulp task runner.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm --no-git-tag-version version 0.0.$(Build.BuildId)
+    echo //registry.npmjs.org/:_authToken=4bd12538-87c0-4445-9122-7ff31f6a32cf > ~/.npmrc
+    echo 'starting npm install'
+    npm install
+    gulp build
+    #npm run publish-please
+  displayName: 'npm install and run gulp'
