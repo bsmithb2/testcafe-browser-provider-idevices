@@ -28,12 +28,11 @@ export default {
         if (simulator) {
             //first one is the simulator tag
             const deviceType = browserName.split('.')[1];
-            const deviceModel = browserName.split('.')[2];
-            
-            return 'platform=iOS Simulator,name=' + deviceType + ' ' + deviceModel;
+           
+            return 'platform=iOS Simulator,name=' + deviceType;
         }
 
-        return '';
+        return browserName;
     },
 
     async closeBrowser (/* id */) {

@@ -23,10 +23,15 @@ When you run tests from the command line, use the alias when specifying browsers
 testcafe idevice:browser1 'path/to/test/file.js'
 ```
 
-A 'browser' is the device you'd like to test in this case. For simulators use "simulator.(idevicetype).(model)"
+A 'browser' is the device you'd like to test in this case. For simulators use "simulator.{simulator Name}"
 
-eg testcafe idevice:simulator.iphone.8 'path/to/test/file.js'
+eg testcafe 'idevice:simulator.iphone 8' 'path/to/test/file.js'
 
+You can find your simulators using
+
+```
+xcrun simctl list
+```
 
 When you use API, pass the alias to the `browsers()` method:
 
