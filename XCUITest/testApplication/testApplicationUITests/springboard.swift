@@ -19,13 +19,15 @@ class Springboard {
     
    
     fileprivate func goToSettingsHome(_ settings: XCUIApplication) {
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 1.0)
+        var count = settings.navigationBars.buttons.count;
         var backButton = settings.navigationBars.buttons.element(boundBy: 0)
         if backButton.exists {
             Thread.sleep(forTimeInterval: 0.5)
             backButton.tap()
         }
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 1.0)
+        count = settings.navigationBars.buttons.count;
         backButton = settings.navigationBars.buttons.element(boundBy: 0)
         Thread.sleep(forTimeInterval: 0.5)
         if backButton.exists {
@@ -62,8 +64,22 @@ class Springboard {
             settings.tables.staticTexts["Reset Location & Privacy"].tap()
             
             //tap the `Reset Warnings` button
+            
             Thread.sleep(forTimeInterval: 0.5)
-            settings.buttons["Reset Warnings"].tap()
+            if settings.buttons.count != 2 {
+                print("A problem occurred trying to reset your location and privacy settings. This is probably because you have a lock code.")
+                //hit the cancel button
+                let count = settings.navigationBars.buttons.count;
+                let backButton = settings.navigationBars.buttons.element(boundBy: 0)
+                Thread.sleep(forTimeInterval: 0.5)
+                if backButton.exists {
+                    Thread.sleep(forTimeInterval: 0.5)
+                    backButton.tap()
+                }
+            }
+            else {
+                settings.buttons["Reset Warnings"].tap()
+            }
             resetBrowserSettings()
             settings.terminate()
         }

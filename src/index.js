@@ -32,7 +32,8 @@ export default {
             return 'platform=iOS Simulator,name=' + deviceType;
         }
 
-        return browserName;
+        //assume ios, UUID config
+        return 'platform=ios,id=' + browserName;
     },
 
     async closeBrowser (/* id */) {

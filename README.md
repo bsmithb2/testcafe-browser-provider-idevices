@@ -33,6 +33,15 @@ You can find your simulators using
 xcrun simctl list
 ```
 
+When you run on a real device, you require a few steps. 
+1. Install XCode
+2. Open the XCUITest testApplication. 
+3. Select your team (Personal is fine). Make sure you do both targets (There's a little dropdown)
+4. Run the app
+5. Run the test in XCode. Note that the test will fail if you have a code to lock your phone. Remove it, and set your phone to stay unlocked forever. Its a test device. 
+6. Run your tests. Make sure the testcafe server (your mac) and the device are accessible and on the same network as each other. 
+
+
 When you use API, pass the alias to the `browsers()` method:
 
 ```js
