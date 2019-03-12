@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "testApplicationUITests.testRunCleanSafariAndExecuteTestCafe():testApplicationUITests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ProcessInfo.processInfo.environment">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "safari.buttons[&quot;URL&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Springboard.openSafari(url:):springboard.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Springboard.goHomeAndLoadSettings(_:):springboard.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

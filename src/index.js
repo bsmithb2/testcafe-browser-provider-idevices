@@ -1,3 +1,9 @@
+import * as debug from './debug';
+
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+
+
 export default {
     // Multiple browsers support
     isMultiBrowser: true,
@@ -5,8 +11,12 @@ export default {
 
     // Required - must be implemented
     // Browser control
-    async openBrowser (/* id, pageUrl, browserName */) {
-        throw new Error('Not implemented!');
+    // eslint-disable-next-line no-unused-vars
+    async openBrowser (id, pageUrl, browserName) {
+        const startXCTestCmd = 'xcodebuild -project XCUITest/testApplication/testApplication.xcodeproj -scheme testApplication -destination \'platform=iOS Simulator,name=iPhone XR\' test TESTCAFE_URL=' + pageUrl;
+
+        await debug.log('running openBrowser with url:' + pageUrl);
+        await exec(startXCTestCmd);
     },
 
     async closeBrowser (/* id */) {

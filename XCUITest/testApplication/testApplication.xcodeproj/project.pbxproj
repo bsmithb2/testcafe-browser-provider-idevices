@@ -13,6 +13,7 @@
 		4E6CE4F42235BFA700EFCCF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E6CE4F32235BFA700EFCCF4 /* Assets.xcassets */; };
 		4E6CE4F72235BFA700EFCCF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E6CE4F52235BFA700EFCCF4 /* LaunchScreen.storyboard */; };
 		4E6CE5022235BFA700EFCCF4 /* testApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6CE5012235BFA700EFCCF4 /* testApplicationUITests.swift */; };
+		4E6CE50D2235BFD500EFCCF4 /* springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6CE50C2235BFD500EFCCF4 /* springboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		4E6CE4FD2235BFA700EFCCF4 /* testApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6CE5012235BFA700EFCCF4 /* testApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testApplicationUITests.swift; sourceTree = "<group>"; };
 		4E6CE5032235BFA700EFCCF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E6CE50C2235BFD500EFCCF4 /* springboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = springboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			children = (
 				4E6CE5012235BFA700EFCCF4 /* testApplicationUITests.swift */,
 				4E6CE5032235BFA700EFCCF4 /* Info.plist */,
+				4E6CE50C2235BFD500EFCCF4 /* springboard.swift */,
 			);
 			path = testApplicationUITests;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E6CE5022235BFA700EFCCF4 /* testApplicationUITests.swift in Sources */,
+				4E6CE50D2235BFD500EFCCF4 /* springboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +365,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TESTCAFE_URL=${TESTCAFE_URL}",
+				);
 				INFOPLIST_FILE = testApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -370,6 +379,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TESTCAFE_URL = "http://carsales.com.au";
 			};
 			name = Debug;
 		};
@@ -387,6 +397,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TESTCAFE_URL = "http://bikesales.com.au";
 			};
 			name = Release;
 		};
