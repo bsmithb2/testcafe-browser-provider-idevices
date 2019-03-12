@@ -41,6 +41,11 @@ When you run on a real device, you require a few steps.
 5. Run the test in XCode. Note that the test will fail if you have a code to lock your phone. Remove it, and set your phone to stay unlocked forever. Its a test device. 
 6. Run your tests. Make sure the testcafe server (your mac) and the device are accessible and on the same network as each other. If you can't connect then the browser will open, but nothing will load. 
 
+Real devices are configured with their UUID as the device name, for example: 
+```
+testcafe 'idevice:f655a41e4fe4c7db93571fb143f91a5a4a7c1e34' test.js
+```
+
 When you use API, pass the alias to the `browsers()` method:
 
 ```js
