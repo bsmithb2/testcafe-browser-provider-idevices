@@ -13,10 +13,27 @@ export default {
     // Browser control
     // eslint-disable-next-line no-unused-vars
     async openBrowser (id, pageUrl, browserName) {
-        const startXCTestCmd = 'xcodebuild -project XCUITest/testApplication/testApplication.xcodeproj -scheme testApplication -destination \'platform=iOS Simulator,name=iPhone XR\' test TESTCAFE_URL=' + pageUrl;
+        var browserString = this.determineValidBrowser(browserName);
+
+        const startXCTestCmd = 'xcodebuild -project XCUITest/testApplication/testApplication.xcodeproj -scheme testApplication -destination \'' + browserString + '\' test TESTCAFE_URL=' + pageUrl;
 
         await debug.log('running openBrowser with url:' + pageUrl);
         await exec(startXCTestCmd);
+    },
+
+    determineValidBrowser (browserName) {
+        //expects simulator.iphone.8
+        var simulator = browserName.includes('simulator');
+        
+        if (simulator) {
+            //first one is the simulator tag
+            const deviceType = browserName.split('.')[1];
+            const deviceModel = browserName.split('.')[2];
+            
+            return 'platform=iOS Simulator,name=' + deviceType + ' ' + deviceModel;
+        }
+
+        return '';
     },
 
     async closeBrowser (/* id */) {

@@ -17,11 +17,15 @@ You can determine the available browser aliases by running
 testcafe -b idevice
 ```
 
-When you run tests from the command line, use the alias when specifying browsers:
+When you run tests from the command line, use the alias when specifying browsers: 
 
 ```
 testcafe idevice:browser1 'path/to/test/file.js'
 ```
+
+A 'browser' is the device you'd like to test in this case. For simulators use "simulator.(idevicetype).(model)"
+
+eg testcafe idevice:simulator.iphone.8 'path/to/test/file.js'
 
 
 When you use API, pass the alias to the `browsers()` method:
