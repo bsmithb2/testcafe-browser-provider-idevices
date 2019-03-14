@@ -15,8 +15,8 @@ export default {
     async openBrowser (id, pageUrl, browserName) {
         var browserString = this.determineValidBrowser(browserName);
 
-        const startXCTestCmd = 'xcodebuild -project XCUITest/testApplication/testApplication.xcodeproj -scheme testApplication -destination \'' + browserString + '\' test TESTCAFE_URL=' + pageUrl;
-
+        const startXCTestCmd = 'xcodebuild -project '+ __dirname +'/XCUITest/testApplication/testApplication.xcodeproj -scheme testApplication -destination \'' + browserString + '\' test TESTCAFE_URL=' + pageUrl;
+        
         await debug.log('running openBrowser with url:' + pageUrl);
         await exec(startXCTestCmd);
     },
