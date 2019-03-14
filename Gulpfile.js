@@ -28,7 +28,12 @@ gulp.task('lint', function () {
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('build', gulp.series(gulp.parallel('clean', 'lint', function () {
+gulp.task('copyXCodeTests', function () {
+    return gulp.src('XCUITest/**/*')
+    .pipe(gulp.dest('lib/XCUITest'));
+});
+
+gulp.task('build', gulp.series(gulp.parallel('clean', 'lint', 'copyXCodeTests', function () {
     return gulp
         .src('src/**/*.js')
         .pipe(babel())
