@@ -6,15 +6,23 @@
          contextName = "GLOBAL">
          <PersistentStrings>
             <PersistentString
-               value = "settings.navigationBars.buttons.element(boundBy:0).exists">
+               value = "safari.buttons[&quot;URL&quot;]">
             </PersistentString>
             <PersistentString
-               value = "safari.buttons[&quot;URL&quot;]">
+               value = "settings.buttons.count">
+            </PersistentString>
+            <PersistentString
+               value = "settings.navigationBars.buttons.element(boundBy:0).exists">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Springboard.goHomeAndLoadSettings(_:):springboard.swift">
+         contextName = "testApplicationUITests.testRunCleanSafariAndExecuteTestCafe():testApplicationUITests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ProcessInfo.processInfo.environment">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "Springboard.goToSettingsHome(_:):springboard.swift">
@@ -31,12 +39,7 @@
          contextName = "Springboard.openSafari(url:):springboard.swift">
       </ContextState>
       <ContextState
-         contextName = "testApplicationUITests.testRunCleanSafariAndExecuteTestCafe():testApplicationUITests.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "ProcessInfo.processInfo.environment">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "Springboard.goHomeAndLoadSettings(_:):springboard.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

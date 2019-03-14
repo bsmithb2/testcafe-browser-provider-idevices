@@ -1,6 +1,7 @@
 import * as debug from './debug';
 
 const util = require('util');
+const path = require('path');
 const exec = util.promisify(require('child_process').exec);
 
 
@@ -15,7 +16,8 @@ export default {
     async openBrowser (id, pageUrl, browserName) {
         var browserString = this.determineValidBrowser(browserName);
 
-        const startXCTestCmd = 'xcodebuild -project '+ __dirname +'/XCUITest/testApplication/testApplication.xcodeproj -scheme testApplication -destination \'' + browserString + '\' test TESTCAFE_URL=' + pageUrl;
+        const xCodeProjLocation = path.join(__dirname, '/XCUITest/testApplication/testApplication.xcodeproj');
+        const startXCTestCmd = 'xcodebuild -project ' + xCodeProjLocation + ' -scheme testApplication -destination \'' + browserString + '\' test TESTCAFE_URL=' + pageUrl;
         
         await debug.log('running openBrowser with url:' + pageUrl);
         await exec(startXCTestCmd);
