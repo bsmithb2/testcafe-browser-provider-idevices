@@ -32,8 +32,8 @@
             timestampString = "574296880.011849"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "openSafari(url:)"
             landmarkType = "7">
          </BreakpointContent>

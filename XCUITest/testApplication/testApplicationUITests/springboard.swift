@@ -96,7 +96,10 @@ class Springboard {
             if(safari2.buttons["Continue"].exists) {
                 safari2.buttons["Continue"].tap()
             }
+            
+            print("Going to check URL button exists")
             if(safari.buttons["URL"].exists) {
+                print("Going to tap URL button")
                 safari2.buttons["URL"].tap()
             }
             Thread.sleep(forTimeInterval: 0.5)
