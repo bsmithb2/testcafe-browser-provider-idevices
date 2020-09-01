@@ -20,7 +20,12 @@ export default {
         const startXCTestCmd = 'xcodebuild -project ' + xCodeProjLocation + ' -scheme testApplication -destination \'' + browserString + '\' test TESTCAFE_URL=' + pageUrl;
         
         await debug.log('running openBrowser with url:' + pageUrl);
-        await exec(startXCTestCmd);
+        await exec(startXCTestCmd, function (error, stdout, stderr) {
+            debug.log('stdout: ', stdout);
+            debug.error('stderr: ', stderr);
+            if (error !== null) 
+                debug.log('exec error: ', error);
+        });
     },
 
     determineValidBrowser (browserName) {
