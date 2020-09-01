@@ -17,11 +17,8 @@ steps:
 
 - script: |
     npm --no-git-tag-version version 0.0.$(Build.BuildId)
-    echo //registry.npmjs.org/:_authToken=${NPMAuthToken} > ~/.npmrc
+    echo //registry.npmjs.org/:_authToken=$(NPMAuthToken) > ~/.npmrc
     echo 'starting npm install'
-    echo 'npm auth otken' 
-    echo ${NPMAuthToken}
-    echo '0000'
     npm install
     gulp build
     npm run publish-please
