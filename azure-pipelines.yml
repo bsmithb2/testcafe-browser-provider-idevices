@@ -38,3 +38,4 @@ steps:
 - script: |
     npm run publish-please
   displayName: 'publish'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
