@@ -25,7 +25,7 @@ steps:
     echo 'starting npm install'
     npm install
     echo 'starting gulp build'
-    gulp 
+    gulp build
   displayName: 'npm install and run gulp'
 
 - script: |
