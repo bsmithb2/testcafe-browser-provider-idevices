@@ -15,7 +15,7 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
- - script: |
+- script: |
     npm install -g gulp
   displayName: 'install gulp'
 
