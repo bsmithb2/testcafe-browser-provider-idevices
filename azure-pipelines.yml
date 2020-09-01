@@ -29,6 +29,9 @@ steps:
   displayName: 'npm install and run gulp'
 
 - script: |
+    npm install -g testcafe
+    gulp build
+    npm link
     npm test
   displayName: 'run tests'
 
