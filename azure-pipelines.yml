@@ -21,6 +21,12 @@ steps:
     echo 'starting npm install'
     npm install
     gulp build
-    npm test
-    npm run publish-please
   displayName: 'npm install and run gulp'
+
+- script: |
+    npm test
+  displayName: 'run tests'
+
+- script: |
+    npm run publish-please
+  displayName: 'publish'
