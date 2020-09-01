@@ -93,7 +93,12 @@ class Springboard {
             safariIcon.tap()
             Thread.sleep(forTimeInterval: 1.5)
             let safari2 = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
-            safari2.buttons["URL"].tap()
+            if(safari2.buttons["Continue"].exists) {
+                safari2.buttons["Continue"].tap()
+            }
+            if(safari.buttons["URL"].exists) {
+                safari2.buttons["URL"].tap()
+            }
             Thread.sleep(forTimeInterval: 0.5)
             safari2.typeText(url + "\n")
 
