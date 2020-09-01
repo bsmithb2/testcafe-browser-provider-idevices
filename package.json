@@ -14,7 +14,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "gulp test",
+    "test": "gulp build && npm link && testcafe 'idevice:simulator.iphone 11' ./exampletest/test.js",
     "publish-please": "publish-please",
     "prepublish": "publish-please guard"
   },
