@@ -15,12 +15,17 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
+ - script: |
+    npm install -g gulp
+  displayName: 'install gulp'
+
 - script: |
     npm --no-git-tag-version version 0.0.$(Build.BuildId)
     echo //registry.npmjs.org/:_authToken=$(NPMAuthToken) > ~/.npmrc
     echo 'starting npm install'
     npm install
-    gulp build
+    echo 'starting gulp build'
+    gulp 
   displayName: 'npm install and run gulp'
 
 - script: |
