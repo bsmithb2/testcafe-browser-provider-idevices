@@ -30,7 +30,7 @@ export default {
         
         await debug.log('running openBrowser with url:' + pageUrl);
         spawn(startXCTestCmd, paramsXCTest,
-            { stdio: [process.stdin, process.stdout, process.stderr] } ); // (A)
+            { stdio: ['ignore', process.stdout, process.stderr] } ); // (A)
         
     },
 
