@@ -30,25 +30,26 @@ export default {
         
         await debug.log('running openBrowser with url:' + pageUrl);
         const subProcess = spawn(startXCTestCmd, paramsXCTest,
-            { stdio: ['ignore', process.stdout, process.stderr] } )
-                .on('close', (code, signal) => { 
-                    debug.log('close: code:' + code + ' signal:' + signal); 
-                    subProcess.disconnect();
-                    subProcess.unref();
-                })
-                .on('exit', (code, signal) => { 
-                    debug.log('exit: code:' + code + ' signal:' + signal); 
-                })
-                .on('error', (code, signal) => { 
-                    debug.log('error: code:' + code + ' signal:' + signal); 
-                })
-                .on('disconnect', (code, signal) => { 
-                    debug.log('disconnect: code:' + code + ' signal:' + signal); 
-                })
-                .on('message', (code, signal) => { 
-                    debug.log('message: code:' + code + ' signal:' + signal); 
-                });
-        
+            { stdio: ['ignore', process.stdout, process.stderr] } );
+            
+        subProcess.on('close', (code, signal) => { 
+            debug.log('close: code:' + code + ' signal:' + signal); 
+            //subProcess.disconnect();
+            subProcess.unref();
+        })
+        .on('exit', (code, signal) => { 
+            debug.log('exit: code:' + code + ' signal:' + signal); 
+        })
+        .on('error', (code, signal) => { 
+            debug.log('error: code:' + code + ' signal:' + signal); 
+        })
+        .on('disconnect', (code, signal) => { 
+            debug.log('disconnect: code:' + code + ' signal:' + signal); 
+        })
+        .on('message', (code, signal) => { 
+            debug.log('message: code:' + code + ' signal:' + signal); 
+        });
+
     },
 
     determineValidBrowser (browserName) {
