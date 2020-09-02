@@ -29,10 +29,12 @@ export default {
         paramsXCTest.push('TESTCAFE_URL=' + pageUrl);
         
         await debug.log('running openBrowser with url:' + pageUrl);
-        spawn(startXCTestCmd, paramsXCTest,
+        const subProcess = spawn(startXCTestCmd, paramsXCTest,
             { stdio: ['ignore', process.stdout, process.stderr] } )
                 .on('close', (code, signal) => { 
                     debug.log('close: code:' + code + ' signal:' + signal); 
+                    subProcess.disconnect();
+                    subProcess.unref();
                 })
                 .on('exit', (code, signal) => { 
                     debug.log('exit: code:' + code + ' signal:' + signal); 
