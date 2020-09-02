@@ -45,13 +45,13 @@ steps:
   displayName: 'build XCUITest to ensure that the framework for testing works'
 
 - script: |
-  npm install -g testcafe
-  gulp build
-  npm link
-  npm test
-displayName: 'run tests'
+    npm install -g testcafe
+    gulp build
+    npm link
+    npm test
+  displayName: 'run tests'
 
 - script: |
-  npm run publish-please
-  displayName: 'publish'
-condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    npm run publish-please
+    displayName: 'publish'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
