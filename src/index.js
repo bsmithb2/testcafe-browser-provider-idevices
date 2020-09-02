@@ -35,7 +35,7 @@ export default {
         subProcess.on('close', (code, signal) => { 
             debug.log('close: code:' + code + ' signal:' + signal); 
             //subProcess.disconnect();
-            subProcess.unref();
+            subProcess.kill();
         })
         .on('exit', (code, signal) => { 
             debug.log('exit: code:' + code + ' signal:' + signal); 

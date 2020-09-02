@@ -29,7 +29,7 @@ steps:
   displayName: 'npm install and run gulp'
 
 - script: |
-    xcodebuild -project ./XCUITest/testApplication/testApplication.xcodeproj -scheme testApplication -destination 'platform=iOS Simulator,name=iphone 11' test
+    # xcodebuild -project ./XCUITest/testApplication/testApplication.xcodeproj -scheme testApplication -destination 'platform=iOS Simulator,name=iphone 11' test
   displayName: 'run XCUITest to ensure that the framework for testing works'
 
 - script: |
