@@ -104,7 +104,7 @@ class Springboard {
             }
             Thread.sleep(forTimeInterval: 0.5)
             safari2.typeText(url + "\n")
-
+            Thread.sleep(forTimeInterval: 5)
         }
     }
     
