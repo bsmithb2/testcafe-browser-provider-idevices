@@ -69,7 +69,7 @@ export default {
     },
 
     async closeBrowser (/* id */) {
-        debug.log("called closebrowser");
+        debug.log('called closebrowser');
         throw new Error('Not implemented!');
     },
 
@@ -77,12 +77,12 @@ export default {
     // Optional - implement methods you need, remove other methods
     // Initialization
     async init () {
-        debug.log("called init");
+        debug.log('called init');
         return;
     },
 
     async dispose () {
-        debug.log("called dispose");
+        debug.log('called dispose');
         return;
     },
 
