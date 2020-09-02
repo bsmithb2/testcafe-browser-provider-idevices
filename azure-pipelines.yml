@@ -37,7 +37,7 @@ steps:
   displayName: 'list simulators'
 
 - script: | 
-    xcrun simctl boot $(xcrun simctl list | grep 'iPhone 11 (' | grep -E -o -i "([0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12})")
+    xcrun simctl boot $(xcrun simctl list | grep 'iPhone 11 (' | grep -E -o -i "([0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12})") | head -1
   displayName: 'boot iphone 11 simulator'
 
 - script: |
