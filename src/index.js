@@ -1,8 +1,7 @@
 import * as debug from './debug';
 
-const util = require('util');
 const path = require('path');
-const exec = util.promisify(require('child_process').exec);
+const { spawn } = require('child_process');
 
 
 export default {
@@ -17,10 +16,22 @@ export default {
         var browserString = this.determineValidBrowser(browserName);
 
         const xCodeProjLocation = path.join(__dirname, '/XCUITest/testApplication/testApplication.xcodeproj');
-        const startXCTestCmd = 'xcodebuild -project ' + xCodeProjLocation + ' -scheme testApplication -destination \'' + browserString + '\' test TESTCAFE_URL=' + pageUrl;
+        const startXCTestCmd = 'xcodebuild';
+        const paramsXCTest = []; 
+        
+        paramsXCTest.push('-project');
+        paramsXCTest.push(xCodeProjLocation); 
+        paramsXCTest.push('-scheme');
+        paramsXCTest.push('testApplication');
+        paramsXCTest.push('-destination');
+        paramsXCTest.push(browserString);
+        paramsXCTest.push('test'); 
+        paramsXCTest.push('TESTCAFE_URL=' + pageUrl);
         
         await debug.log('running openBrowser with url:' + pageUrl);
-        await exec(startXCTestCmd);
+        spawn(startXCTestCmd, paramsXCTest,
+            { stdio: [process.stdin, process.stdout, process.stderr] } ); // (A)
+        
     },
 
     determineValidBrowser (browserName) {
