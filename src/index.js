@@ -35,6 +35,7 @@ export default {
         subProcess.on('close', (code, signal) => { 
             debug.log('close: code:' + code + ' signal:' + signal); 
             //subProcess.disconnect();
+            subProcess.stdio = [null, null, null];
             subProcess.kill();
         })
         .on('exit', (code, signal) => { 
@@ -68,6 +69,7 @@ export default {
     },
 
     async closeBrowser (/* id */) {
+        debug.log("called closebrowser");
         throw new Error('Not implemented!');
     },
 
@@ -75,10 +77,12 @@ export default {
     // Optional - implement methods you need, remove other methods
     // Initialization
     async init () {
+        debug.log("called init");
         return;
     },
 
     async dispose () {
+        debug.log("called dispose");
         return;
     },
 
