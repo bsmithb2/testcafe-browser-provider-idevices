@@ -36,14 +36,22 @@ steps:
     xcrun simctl list
   displayName: 'list simulators'
 
-- script: |
-    npm install -g testcafe
-    gulp build
-    npm link
-    npm test
-  displayName: 'run tests'
+- script: | 
+    xcrun simctl boot $(xcrun simctl list | grep 'iPhone 11 (' | grep -E -o -i "([0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12})")
+  displayName: 'boot iphone 11 simulator'
 
 - script: |
-    npm run publish-please
+    xcodebuild -project ./XCUITest/testApplication/testApplication.xcodeproj -scheme testApplication -destination 'platform=iOS Simulator,name=iphone 11' build-for-testing
+  displayName: 'build XCUITest to ensure that the framework for testing works'
+
+- script: |
+  npm install -g testcafe
+  gulp build
+  npm link
+  npm test
+displayName: 'run tests'
+
+- script: |
+  npm run publish-please
   displayName: 'publish'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
