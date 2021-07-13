@@ -26,8 +26,9 @@ export default {
         paramsXCTest.push('-destination');
         paramsXCTest.push(browserString);
         paramsXCTest.push('test'); 
+        paramsXCTest.push('IDEVICE_TIMEOUT=10');
         paramsXCTest.push('TESTCAFE_URL=' + pageUrl);
-        
+
         await debug.log('running openBrowser with url:' + pageUrl);
         const subProcess = spawn(startXCTestCmd, paramsXCTest,
             { stdio: ['ignore', process.stdout, process.stderr] } );
