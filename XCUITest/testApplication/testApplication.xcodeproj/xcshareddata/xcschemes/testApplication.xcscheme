@@ -50,6 +50,11 @@
       </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
+            key = "IDEVICE_TIMEOUT"
+            value = "10"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "TESTCAFE_URL"
             value = "${TESTCAFE_URL}"
             isEnabled = "YES">
