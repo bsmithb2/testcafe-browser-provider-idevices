@@ -37,11 +37,11 @@ class Springboard {
     }
     
     fileprivate func goHomeAndLoadSettings(_ settingsIcon: XCUIElement) {
-        //Press home button twise slowly in order to go to the first page of the springboard
+        //Press home button twice slowly in order to go to the first page of the springboard
         Thread.sleep(forTimeInterval: 0.5)
         XCUIDevice.shared.press(.home)
         
-        //Press home button twise slowly in order to go to the first page of the springboard
+        //Press home button twice slowly in order to go to the first page of the springboard
         Thread.sleep(forTimeInterval: 0.5)
         XCUIDevice.shared.press(.home)
         //tap the settings icon
@@ -54,7 +54,9 @@ class Springboard {
         XCUIDevice.shared.press(.home)
         Thread.sleep(forTimeInterval: 2.5)
         let settingsIcon = springboard.icons["Settings"]
-        if settingsIcon.exists {
+        let maxTimeout: Double = Double(ProcessInfo.processInfo.environment["IDEVICE_TIMEOUT"]!) ?? 10
+
+        if settingsIcon.waitForExistence(timeout: maxTimeout) {
             let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
             settings.terminate()
             goHomeAndLoadSettings(settingsIcon)
@@ -72,8 +74,7 @@ class Springboard {
                 let count = settings.navigationBars.buttons.count;
                 let backButton = settings.navigationBars.buttons.element(boundBy: 0)
                 Thread.sleep(forTimeInterval: 0.5)
-                if backButton.exists {
-                    Thread.sleep(forTimeInterval: 0.5)
+                if backButton.waitForExistence(timeout: maxTimeout) {
                     backButton.tap()
                 }
             }
@@ -89,16 +90,18 @@ class Springboard {
     func openSafari(url: String) {
         XCUIDevice.shared.press(.home)
         let safariIcon = springboard.icons["Safari"]
+        let maxTimeout: Double  = Double(ProcessInfo.processInfo.environment["IDEVICE_TIMEOUT"]!) ?? 10
+
         if safariIcon.exists {
             safariIcon.tap()
             Thread.sleep(forTimeInterval: 1.5)
             let safari2 = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
-            if(safari2.buttons["Continue"].exists) {
+            if(safari2.buttons["Continue"].waitForExistence(timeout: maxTimeout)) {
                 safari2.buttons["Continue"].tap()
             }
             
             print("Going to check URL button exists")
-            if(safari.buttons["URL"].exists) {
+            if(safari.buttons["URL"].waitForExistence(timeout: maxTimeout)) {
                 print("Going to tap URL button")
                 safari2.buttons["URL"].tap()
             }
